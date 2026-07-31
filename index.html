@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="B-Maker — приложение для планирования, написания и подготовки книг.">
+  <meta name="theme-color" content="#071426">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="B-Maker">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png?v=031">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png?v=031">
+
+  <title>B-Maker</title>
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div id="bmaker-loader" role="status" aria-live="polite">
+    <div class="bmaker-loader__brand">
+      <div class="bmaker-loader__header">
+        <img
+          class="bmaker-loader__icon"
+          src="icons/Icon-192.png?v=031"
+          width="68"
+          height="68"
+          alt=""
+        >
+        <div class="bmaker-loader__title">
+          <span class="bmaker-loader__name">B-Maker</span>
+          <span class="bmaker-loader__meta">by Anton Kurakin</span>
+        </div>
+      </div>
+      <div class="bmaker-loader__track" aria-hidden="true">
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #071426;
+    }
+
+    body {
+      overflow: hidden;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    #bmaker-loader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      display: grid;
+      place-items: center;
+      color: #f8fbff;
+      background: #071426;
+      opacity: 1;
+      transition: opacity 220ms ease;
+    }
+
+    #bmaker-loader.bmaker-loader--hidden {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .bmaker-loader__brand {
+      display: flex;
+      width: min(360px, calc(100vw - 48px));
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .bmaker-loader__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bmaker-loader__icon {
+      width: 68px;
+      height: 68px;
+      flex: 0 0 68px;
+      border-radius: 8px;
+      object-fit: cover;
+      animation: bmaker-breathe 1.6s ease-in-out infinite;
+    }
+
+    .bmaker-loader__title {
+      display: flex;
+      min-width: 0;
+      margin-left: 20px;
+      align-items: baseline;
+      text-align: left;
+    }
+
+    .bmaker-loader__name {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 30px;
+      white-space: nowrap;
+    }
+
+    .bmaker-loader__meta {
+      margin-left: 8px;
+      color: #91a9be;
+      font-size: 11px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+
+    .bmaker-loader__track {
+      position: relative;
+      width: 128px;
+      height: 4px;
+      margin-top: 20px;
+      overflow: hidden;
+      border-radius: 2px;
+      background: #18304a;
+    }
+
+    .bmaker-loader__track span {
+      position: absolute;
+      top: 0;
+      left: -38px;
+      width: 38px;
+      height: 4px;
+      border-radius: 2px;
+      background: #20d7ff;
+      animation: bmaker-progress 1.6s linear infinite;
+    }
+
+    @keyframes bmaker-progress {
+      to {
+        transform: translateX(166px);
+      }
+    }
+
+    @keyframes bmaker-breathe {
+      0%,
+      100% {
+        opacity: 0.9;
+        transform: scale(0.985);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bmaker-loader__icon,
+      .bmaker-loader__track span {
+        animation: none;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .bmaker-loader__title {
+        margin-left: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .bmaker-loader__meta {
+        margin-left: 0;
+        margin-top: 2px;
+      }
+    }
+  </style>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      const loader = document.getElementById('bmaker-loader');
+      if (!loader) return;
+      loader.classList.add('bmaker-loader--hidden');
+      window.setTimeout(function () {
+        loader.remove();
+      }, 240);
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
