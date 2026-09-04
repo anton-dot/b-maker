@@ -1,6 +1,7 @@
 {
     "name": "B-Maker",
     "short_name": "B-Maker",
+    "id": "com.antkurakin.bmaker",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#071426",
