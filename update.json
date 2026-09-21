@@ -1,22 +1,22 @@
 {
     "schemaVersion":  1,
-    "publishedAtUtc":  "2026-09-13T07:06:27.6078645Z",
+    "publishedAtUtc":  "2026-09-21T08:43:02.7595537Z",
     "releases":  {
                      "web":  {
                                  "version":  "0.15.0",
-                                 "build":  26,
+                                 "build":  27,
                                  "available":  true,
                                  "url":  "https://b-maker.kurakin.pro/"
                              },
                      "windows":  {
                                      "version":  "0.15.0",
-                                     "build":  26,
+                                     "build":  27,
                                      "available":  true,
                                      "url":  "https://kurakin.pro/downloads/bmaker/B-Maker-Setup-win.zip"
                                  },
                      "macos":  {
-                                   "version":  "0.13.0",
-                                   "build":  24,
+                                   "version":  "0.15.0",
+                                   "build":  26,
                                    "available":  true,
                                    "url":  "https://kurakin.pro/downloads/bmaker/B-Maker-Setup-macos.zip"
                                }
